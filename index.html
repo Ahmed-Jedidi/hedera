@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AidProof TN</title>
+  <script defer src="app.js"></script>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 1rem; }
+    input, button { padding: 0.5rem; margin: 0.5rem 0; width: 100%; }
+    ul { padding: 0; list-style: none; }
+    li { background: #f0f0f0; margin: 0.25rem 0; padding: 0.5rem; border-radius: 4px; }
+
+    table, th, td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+th {
+  background-color: #eee;
+}
+  </style>
+</head>
+<body>
+  <h2>AidProof TN - Aid Logger</h2>
+  <input id="beneficiaryId" placeholder="Beneficiary ID (pseudonym)" />
+  <input id="aidType" placeholder="Aid Type (e.g., food, medicine)" />
+  <input id="location" placeholder="Location (e.g., Sousse)" />
+  <button onclick="submitAid()">Log Aid Distribution</button>
+  <h3>Aid Log History</h3>
+  <h3>Filters</h3>
+<input id="filterLocation" placeholder="Filter by Location" />
+<input id="filterDate" type="date" />
+<!--<input id="filterAidType" placeholder="Filter by Aid Type (e.g., food, medicine)" />-->
+<select id="filterAidType">
+  <option value="">-- All Aid Types --</option>
+  <option value="food">Food</option>
+  <option value="medicine">Medicine</option>
+  <option value="clothing">Clothing</option>
+  <option value="hygiene">Hygiene</option>
+  <option value="shelter">Shelter</option>
+</select>
+<!--<input id="filterBeneficiaryId" placeholder="Filter by Beneficiary ID (pseudonym)" />-->
+<input id="filterBeneficiary" placeholder="Filter by Beneficiary ID" />
+
+<!-- Table container -->
+<div id="logsTableContainer" style="margin-top: 1rem;"></div>
+
+<button onclick="loadLogs()">Apply Filters</button>
+<button onclick="exportCSV()">Export CSV</button>
+  <ul id="logsList"><li>Loading logs...</li></ul>
+  <div id="result"></div>
+</body>
+</html>
